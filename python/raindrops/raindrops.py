@@ -1,11 +1,15 @@
 def convert(number: int) -> str:
     factors = []
-    if number % 3 == 0:
-        factors.append("Pling")
-    if number % 5 == 0:
-        factors.append("Plang")
-    if number % 7 == 0:
-        factors.append("Plong")
+    for factor, raindrop in divisors.items():
+        if number % factor == 0:
+            factors.append(raindrop)
     if len(factors) == 0:
         factors.append(str(number))
     return "".join(factors)
+
+
+divisors = {
+    3: "Pling",
+    5: "Plang",
+    7: "Plong"
+}
