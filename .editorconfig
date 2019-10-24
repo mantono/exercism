@@ -1,0 +1,14 @@
+# http://editorconfig.org
+root = true
+
+[*]
+end_of_line = lf
+
+# PEP8 https://www.python.org/dev/peps/pep-0008/ http://pep8.org/
+[*.py]
+trim_trailing_whitespace = true
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+max_line_length = 79
