@@ -1,4 +1,4 @@
-def convert(number):
+def convert(number: int) -> str:
     factors = []
     if number % 3 == 0:
         factors.append("Pling")
@@ -8,7 +8,4 @@ def convert(number):
         factors.append("Plong")
     if len(factors) == 0:
         factors.append(str(number))
-    value = ""
-    for raindrop in factors:
-        value += raindrop
-    return value
+    return "".join(factors)
