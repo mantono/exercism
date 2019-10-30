@@ -22,9 +22,15 @@ class Matrix(object):
     # 1 -> [9, 8, 7]
     # 3 -> [5, 3, 2]
     def row(self, index) -> List[int]:
-        row = [x for i, x in enumerate(self.numbers) if i / self.columns == (index-1)]
+        row = [x for i, x in enumerate(self.numbers) if i // self.columns == (index-1)]
         return row
 
+    # 9 8 7 | 9 5 6
+    # 5 3 2 | 8 3 6
+    # 6 6 7 | 7 2 7
+
+    # 1 -> 9 5 6
+    # 3 -> 7 2 7
     def column(self, index) -> List[int]:
-        column = [x for i, x in enumerate(self.numbers) if i % self.rows == index+1]
+        column = [x for i, x in enumerate(self.numbers) if i % self.columns == (index-1)]
         return column
