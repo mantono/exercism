@@ -19,6 +19,7 @@ pub fn nth(n: u32) -> u32 {
     *primes.last().expect("No prime found")
 }
 
+#[inline]
 fn is_prime(known_primes: &Vec<u32>, n: u32) -> bool {
     if n % 2 == 0 {
         return false
