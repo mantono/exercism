@@ -20,9 +20,7 @@ def create_rows(matrix_string: str) -> List[List[int]]:
     matrix: List[List[int]] = []
 
     for row in matrix_string.splitlines():
-        row_list: List[int] = []
-        for cell in row.split():
-            row_list.append(int(cell))
+        row_list: List[int] = [int(cell) for cell in row.split()]
         matrix.append(row_list)
 
     return matrix
