@@ -20,7 +20,7 @@ class Matrix(object):
     # 6 6 7 | 6 7 8
 
     # 1 -> [9, 8, 7]
-    # 3 -> [5, 3, 2]
+    # 2 -> [5, 3, 2]
     def row(self, index) -> List[int]:
         row = [x for i, x in enumerate(self.numbers) if i // self.columns == (index-1)]
         return row
