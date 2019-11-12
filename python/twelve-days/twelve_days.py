@@ -12,7 +12,7 @@ days: Dict[int, Tuple[str, str]] = {
     5: ("fifth", "five Gold Rings"),
     6: ("sixth", "six Geese-a-Laying"),
     7: ("seventh", "seven Swans-a-Swimming"),
-    8: ("eight", "eight Maids-a-Milking"),
+    8: ("eighth", "eight Maids-a-Milking"),
     9: ("ninth", "nine Ladies Dancing"),
     10: ("tenth", "ten Lords-a-Leaping"),
     11: ("eleventh", "eleven Pipers Piping"),
@@ -33,9 +33,12 @@ def recursive_verses(current: int, end: int, verses: List[str]) -> List[str]:
 
     dynamic_part: Deque[str] = deque()
     for v in days:
-        if v <= end:
-            (order, content) = days[v]
+        if v <= current:
+            (_, content) = days[v]
             dynamic_part.appendleft(content)
+        else:
+            break
+
     verse = ", ".join(dynamic_part)
     if current == 1:
         verse = verse.replace("and ", "")
