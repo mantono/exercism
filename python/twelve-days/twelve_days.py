@@ -1,7 +1,8 @@
 from typing import List
 from typing import Dict
+from typing import Tuple
 
-days: Dict[int, (str, str)] = {
+days: Dict[int, Tuple[str, str]] = {
     1: ("first", "and a Partridge in a Pear Tree."),
     2: ("second", "two Turtle Doves"),
     3: ("third", "three French Hens"),
