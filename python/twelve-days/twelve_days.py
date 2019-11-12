@@ -1,9 +1,11 @@
 from typing import List
 from typing import Dict
 from typing import Tuple
+from typing import Deque
+from collections import deque
 
 days: Dict[int, Tuple[str, str]] = {
-    1: ("first", "and a Partridge in a Pear Tree."),
+    1: ("first", "and a Partridge in a Pear Tree"),
     2: ("second", "two Turtle Doves"),
     3: ("third", "three French Hens"),
     4: ("fourth", "four Calling Birds"),
@@ -29,13 +31,16 @@ def recursive_verses(current: int, end: int, verses: List[str]) -> List[str]:
     if current > end:
         return verses
 
-    (order, _) = days[current]
+    dynamic_part: Deque[str] = deque()
     for v in days:
-        if current <= v <= end:
-            print(days[v]) # <-- Work in progress
-    verse = "" # <-- Work in progress
+        if v <= end:
+            (order, content) = days[v]
+            dynamic_part.appendleft(content)
+    verse = ", ".join(dynamic_part)
     if current == 1:
         verse = verse.replace("and ", "")
+
+    (order, _) = days[current]
     output = template.format(order, verse)
     verses.append(output)
 
