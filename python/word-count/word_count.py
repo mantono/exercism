@@ -2,12 +2,14 @@ from typing import Dict
 from typing import List
 import re
 
-pattern = re.compile("\\w+('\\w+)?")
-split = re.compile("[\\s_,]+")
+match_on = re.compile("\\w+('\\w+)?")
+delimiter = re.compile("[\\s_,]+")
+
 
 def count_words(sentence: str) -> Dict[str, int]:
-    words: List[str] = split.split(sentence)
-    words: List[str] = [re.search(pattern, x).group(0).lower() for x in words if len(x) > 0]
-    words: Dict[str, int] = dict((k, words.count(k)) for k in words)
-    print(words)
-    return words
+    words: List[str] = delimiter.split(sentence)
+    words: List[str] = [
+        re.search(match_on, w).group(0).lower()
+        for w in words if len(w) > 0
+    ]
+    return dict((k, words.count(k)) for k in words)
