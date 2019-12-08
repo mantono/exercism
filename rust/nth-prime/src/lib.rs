@@ -25,14 +25,22 @@ fn is_prime(known_primes: &Vec<u32>, n: u32) -> bool {
         return false
     }
 
+    let until: u32 = (n as f64).sqrt() as u32;
+
     for prime in known_primes.iter() {
         if n % prime == 0 {
             return false;
         }
+        if prime >= &until {
+            break;
+        }
     }
 
-    let until: u32 = (n as f64).sqrt() as u32;
-    let mut num: u32 = known_primes.last().expect("No element found") + 2;
+    let mut num: u32 = if until % 2 == 0 {
+        until + 1
+    } else {
+        until
+    };
 
     while num <= until {
         if n % num == 0 {

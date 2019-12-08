@@ -4,3 +4,10 @@ name = "nth_prime"
 version = "2.1.0"
 
 [dependencies]
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
