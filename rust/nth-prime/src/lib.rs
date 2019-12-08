@@ -8,7 +8,8 @@ pub fn nth(n: u32) -> u32 {
     primes.push(2);
     primes.push(3);
 
-    (2..)
+    (3..)
+        .step_by(2)
         .filter(|p|
             if is_prime(&primes, p.clone()) {
                 primes.push(*p);
@@ -17,7 +18,7 @@ pub fn nth(n: u32) -> u32 {
                 false
             }
         )
-        .nth(un)
+        .nth(un-1)
         .unwrap()
 }
 
